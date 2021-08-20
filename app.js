@@ -11,8 +11,8 @@ checkBtn.addEventListener('click', ValidateBillAndCashAmount);
 function ValidateBillAndCashAmount() {
     hideMsg();
     if (billAmt.value > 0) {
-        if (cashGiven.value > billAmt.value) {
-            const amountToBeReturned = cashGiven.value - billAmt.value;
+        if (Number(cashGiven.value) > Number(billAmt.value)) {
+            const amountToBeReturned = Number(cashGiven.value) - Number(billAmt.value);
             calculateChange(amountToBeReturned);
         } else {
             showMessage("Do you wanna wash plates?👿")
@@ -20,7 +20,7 @@ function ValidateBillAndCashAmount() {
     } else {
         showMessage("Invalid Bill Amount");
     }
-    if (cashGiven.value == billAmt.value) {
+    if (Number(cashGiven.value) == Number(billAmt.value)) {
         showMessage("Thank you!! , for providing exact bill amount🙂");
     }
 }
